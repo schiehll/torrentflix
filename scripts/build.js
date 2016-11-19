@@ -1,14 +1,14 @@
-import chalk from 'chalk'
-import fs from 'fs-extra'
-import path from 'path'
-import filesize from 'filesize'
-import {sync as gzipSize} from 'gzip-size'
-import {sync as rimrafSync} from 'rimraf'
-import webpack from 'webpack'
-import config from '../config/webpack.config.prod.babel'
-import paths from '../config/paths'
-import recursive from 'recursive-readdir'
-import stripAnsi from 'strip-ansi'
+const chalk = require('chalk')
+const fs = require('fs-extra')
+const path = require('path')
+const filesize = require('filesize')
+const gzipSize = require('gzip-size').sync
+const rimrafSync = require('rimraf').sync
+const webpack = require('webpack')
+const config = require('../config/webpack.config.prod.babel')
+const paths = require('../config/paths')
+const recursive = require('recursive-readdir')
+const stripAnsi = require('strip-ansi')
 
 const removeFileNameHash = fileName => {
   return fileName

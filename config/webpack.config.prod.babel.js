@@ -1,8 +1,8 @@
-import webpack from 'webpack'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import InterpolateHtmlPlugin from 'react-dev-utils/InterpolateHtmlPlugin'
-import paths from './paths'
-import vendor from './vendor'
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')
+const paths = require('./paths')
+const vendor = require('./vendor')
 
 if (process.env.NODE_ENV !== 'production') {
   throw new Error('Production builds must have NODE_ENV=production.')
@@ -31,7 +31,7 @@ const publicUrl = ensureSlash(homepagePathname, false)
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
-export default {
+module.exports = {
   // Don't attempt to continue if there are any errors.
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
@@ -52,7 +52,7 @@ export default {
   },
 
   resolve: {
-    extensions: ['.js', '.json', '']
+    extensions: ['.js', '.json']
   },
 
   module: {
@@ -60,11 +60,11 @@ export default {
       {
         test: /\.js?/,
         include: paths.appSrc,
-        loader: 'babel'
+        loader: 'babel-loader'
       },
       {
         test: /\.json?/,
-        loader: 'json'
+        loader: 'json-loader'
       }
     ]
   },

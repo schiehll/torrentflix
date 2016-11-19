@@ -1,10 +1,10 @@
-import webpack from 'webpack'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import WatchMissingNodeModulesPlugin from 'react-dev-utils/WatchMissingNodeModulesPlugin'
-import paths from './paths'
-import vendor from './vendor'
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin')
+const paths = require('./paths')
+const vendor = require('./vendor')
 
-export default {
+module.exports = {
   devtool: 'cheap-module-source-map',
   entry: {
     vendor: vendor.concat([
@@ -22,7 +22,7 @@ export default {
   },
 
   resolve: {
-    extensions: ['.js', '.json', '']
+    extensions: ['.js', '.json']
   },
 
   module: {
@@ -30,11 +30,11 @@ export default {
       {
         test: /\.js?/,
         include: paths.appSrc,
-        loader: 'babel'
+        loader: 'babel-loader'
       },
       {
         test: /\.json?/,
-        loader: 'json'
+        loader: 'json-loader'
       }
     ]
   },
