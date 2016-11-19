@@ -3,7 +3,7 @@
 > A react boilerplate with code splitting based in [CRA](https://github.com/facebookincubator/create-react-app)
 
 # Includes
-  - webpack 1
+  - webpack 2
   - react-router 3
   - jest
   - [standardjs](https://github.com/feross/standard)
