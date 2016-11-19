@@ -64,7 +64,6 @@
       "expect"
     ],
     "ignore": [
-      "**/*/*.spec.js",
       "build"
     ]
   },
