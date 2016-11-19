@@ -43,12 +43,12 @@
     "rimraf": "^2.5.4",
     "standard": "^8.5.0",
     "strip-ansi": "^3.0.1",
-    "webpack": "^1.13.3",
+    "webpack": "v2.1.0-beta.27",
     "webpack-dev-server": "^1.16.2"
   },
   "babel": {
     "presets": [
-      "es2015",
+      ["es2015", {"modules": false}],
       "stage-2",
       "react"
     ],

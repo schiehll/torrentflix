@@ -1,30 +1,31 @@
 import App from './components/App'
 
+const loadModule = (cb, module) => {
+  return cb(null, module.default)
+}
+
 export default {
   path: '/',
   component: App,
   indexRoute: {
-    getComponent (nextState, callback) {
-      require.ensure([], require => {
-        callback(null, require('./components/home').default)
-      })
+    getComponent (nextState, cb) {
+      System.import('./components/home')
+        .then(module => loadModule(cb, module))
     }
   },
   childRoutes: [
     {
       path: 'about',
-      getComponent (nextState, callback) {
-        require.ensure([], require => {
-          callback(null, require('./components/about').default)
-        })
+      getComponent (nextState, cb) {
+        System.import('./components/about')
+          .then(module => loadModule(cb, module))
       }
     },
     {
       path: '*',
-      getComponent (nextState, callback) {
-        require.ensure([], require => {
-          callback(null, require('./components/no-match').default)
-        })
+      getComponent (nextState, cb) {
+        System.import('./components/no-match')
+          .then(module => loadModule(cb, module))
       }
     }
   ]

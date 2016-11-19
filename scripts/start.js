@@ -1,12 +1,12 @@
-import chalk from 'chalk'
-import webpack from 'webpack'
-import WebpackDevServer from 'webpack-dev-server'
-import historyApiFallback from 'connect-history-api-fallback'
-import clearConsole from 'react-dev-utils/clearConsole'
-import formatWebpackMessages from 'react-dev-utils/formatWebpackMessages'
-import openBrowser from 'react-dev-utils/openBrowser'
-import config from '../config/webpack.config.babel'
-import paths from '../config/paths'
+const chalk = require('chalk')
+const webpack = require('webpack')
+const WebpackDevServer = require('webpack-dev-server')
+const historyApiFallback = require('connect-history-api-fallback')
+const clearConsole = require('react-dev-utils/clearConsole')
+const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages')
+const openBrowser = require('react-dev-utils/openBrowser')
+const config = require('../config/webpack.config.babel')
+const paths = require('../config/paths')
 
 const DEFAULT_PORT = process.env.PORT || 3000
 let compiler
