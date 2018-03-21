@@ -1,5 +1,0 @@
-exports[`test should render just fine 1`] = `
-<div>
-  Ooops, we couldn\'t find this route.
-</div>
-`;
