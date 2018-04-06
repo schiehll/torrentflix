@@ -1,8 +1,6 @@
 {
   "parser": "babel-eslint",
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
   "rules": {
     "react/jsx-uses-vars": 2,
     "react/jsx-uses-react": 2,
@@ -13,6 +11,9 @@
         "args": "none",
         "ignoreRestSiblings": true
       }
-    ]
+    ],
+    "no-else-return": "error",
+    "no-unreachable": "error",
+    "prefer-const": "error"
   }
 }
