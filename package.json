@@ -6,6 +6,7 @@
   "author": "Reinaldo Schiehll <rn.schiehll@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "serve": "serve -s dist",
     "build": "webpack --mode production --config webpack/webpack.config.js",
     "analyze": "webpack --mode production --config webpack/webpack.analyze.js",
     "dev": "webpack-dev-server --mode development --hot --config webpack/webpack.dev.js",
@@ -25,6 +26,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^7.0.0",
     "prettier": "^1.11.1",
+    "serve": "^9.4.0",
     "webpack": "^4.2.0",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^2.0.12",
