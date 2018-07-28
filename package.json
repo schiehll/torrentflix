@@ -8,8 +8,7 @@
   "scripts": {
     "build": "webpack --mode production --config webpack/webpack.config.js",
     "analyze": "webpack --mode production --config webpack/webpack.analyze.js",
-    "dev":
-      "webpack-dev-server --mode development --hot --config webpack/webpack.dev.js",
+    "dev": "webpack-dev-server --mode development --hot --config webpack/webpack.dev.js",
     "lint": "lint-staged",
     "precommit": "lint-staged"
   },
