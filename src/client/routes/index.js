@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
-import LoadableRoute from 'utils/LoadableRoute'
+import LoadableRoute from 'client/utils/LoadableRoute'
 
 export const PATHS = {
   HOME: '/'

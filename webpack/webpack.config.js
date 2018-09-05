@@ -4,7 +4,7 @@ const path = require('path')
 const resolve = filePath => path.resolve(__dirname, '../', filePath)
 
 module.exports = {
-  entry: resolve('src/index'),
+  entry: resolve('src/client/index'),
 
   output: {
     path: resolve('dist'),
@@ -28,7 +28,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve('src/index.html'),
+      template: resolve('src/client/index.html'),
       chunksSortMode: 'none'
     })
   ],

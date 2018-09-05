@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { PATHS } from 'routes'
+import { PATHS } from 'client/routes'
 
 class NoMatch extends Component {
   render() {
