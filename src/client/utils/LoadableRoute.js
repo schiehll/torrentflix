@@ -1,15 +1,17 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Loadable from 'react-loadable'
+import loadable from 'loadable-components'
 import Loader from 'client/components/loader'
 
 export default ({ screen, ...rest }) => (
   <Route
     {...rest}
-    component={Loadable({
-      loader: () =>
+    component={loadable(
+      () =>
         import(/* webpackChunkName: "screen-[request]" */ `../screens/${screen}`),
-      loading: Loader
-    })}
+      {
+        LoadingComponent: Loader
+      }
+    )}
   />
 )
