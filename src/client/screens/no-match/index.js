@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@reach/router'
 import { PATHS } from 'client/routes'
 
 class NoMatch extends Component {

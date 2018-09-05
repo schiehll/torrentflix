@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import { Router } from '@reach/router'
 import LoadableRoute from 'client/utils/LoadableRoute'
 
 export const PATHS = {
@@ -10,10 +10,8 @@ class Routes extends Component {
   render() {
     return (
       <Router>
-        <Switch>
-          <LoadableRoute exact path={PATHS.HOME} screen="home" />
-          <LoadableRoute path="*" screen="no-match" />
-        </Switch>
+        <LoadableRoute path={PATHS.HOME} screen="home" />
+        <LoadableRoute path="*" screen="no-match" />
       </Router>
     )
   }
