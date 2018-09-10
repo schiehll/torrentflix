@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Router } from '@reach/router'
-import LoadableRoute from 'client/utils/LoadableRoute'
+import ScreenRoute from 'client/utils/ScreenRoute'
 
 export const PATHS = {
   HOME: '/'
@@ -10,8 +10,8 @@ class Routes extends Component {
   render() {
     return (
       <Router>
-        <LoadableRoute path={PATHS.HOME} screen="home" />
-        <LoadableRoute path="*" screen="no-match" />
+        <ScreenRoute path={PATHS.HOME} screen="home" title="App" />
+        <ScreenRoute path="*" screen="no-match" title="App - No match" />
       </Router>
     )
   }
