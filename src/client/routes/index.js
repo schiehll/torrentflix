@@ -10,8 +10,13 @@ class Routes extends Component {
   render() {
     return (
       <Router>
-        <ScreenRoute path={PATHS.HOME} screen="home" title="App" />
-        <ScreenRoute path="*" screen="no-match" title="App - No match" />
+        <ScreenRoute key="home" screen="home" title="App" path={PATHS.HOME} />
+        <ScreenRoute
+          key="no-match"
+          screen="no-match"
+          title="App - No match"
+          default
+        />
       </Router>
     )
   }

@@ -8,3 +8,4 @@
 - Code Splitting
 - Prettier
 - Eslint
+- Styled Components
