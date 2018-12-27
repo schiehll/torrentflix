@@ -1,5 +1,5 @@
 [context.production.environment]
-  OMDB_URL="http://www.omdbapi.com"
+  OMDB_URL="https://www.omdbapi.com"
   POPCORN_URL="https://tv-v2.api-fetch.website"
 
 [[redirects]]
