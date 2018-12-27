@@ -6,5 +6,5 @@
   status = 200
 
 [context.production.environment]
-  OMDB_URL=http://www.omdbapi.com
-  POPCORN_URL=https://tv-v2.api-fetch.website
+  OMDB_URL="http://www.omdbapi.com"
+  POPCORN_URL="https://tv-v2.api-fetch.website"
