@@ -1,10 +1,8 @@
-# The following redirect is intended for use with most SPAs that handle
-# routing internally.
+[context.production.environment]
+  OMDB_URL="http://www.omdbapi.com"
+  POPCORN_URL="https://tv-v2.api-fetch.website"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[context.production.environment]
-  OMDB_URL="http://www.omdbapi.com"
-  POPCORN_URL="https://tv-v2.api-fetch.website"
