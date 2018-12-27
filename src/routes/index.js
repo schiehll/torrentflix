@@ -3,18 +3,15 @@ import { Router } from '@reach/router'
 import ScreenRoute from 'utils/ScreenRoute'
 
 export const PATHS = {
-  HOME: '/'
+  HOME: '/',
+  DETAILS: '/details'
 }
 
 const Routes = () => (
   <Router>
-    <ScreenRoute key="home" screen="home" title="App" path={PATHS.HOME} />
-    <ScreenRoute
-      key="no-match"
-      screen="no-match"
-      title="App - No match"
-      default
-    />
+    <ScreenRoute key="home" screen="home" path={PATHS.HOME} />
+    <ScreenRoute key="details" screen="details" path={PATHS.DETAILS} />
+    <ScreenRoute key="no-match" screen="no-match" default />
   </Router>
 )
 

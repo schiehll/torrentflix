@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 const path = require('path')
 
 const resolve = filePath => path.resolve(__dirname, '../', filePath)
@@ -31,7 +32,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: resolve('src/index.html'),
       chunksSortMode: 'none'
-    })
+    }),
+    new Dotenv()
   ],
 
   stats: {

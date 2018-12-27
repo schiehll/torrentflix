@@ -7,7 +7,7 @@ const ScreenRoute = ({ screen, ...props }) => {
   )
 
   return (
-    <Suspense delay={1500} fallback={Loader}>
+    <Suspense delay={1500} fallback={<Loader />}>
       <Route {...props} />
     </Suspense>
   )
