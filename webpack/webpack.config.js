@@ -33,7 +33,7 @@ module.exports = {
       template: resolve('src/index.html'),
       chunksSortMode: 'none'
     }),
-    new Dotenv()
+    new Dotenv({ systemvars: true })
   ],
 
   stats: {
