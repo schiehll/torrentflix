@@ -24,5 +24,4 @@ node_modules/
 .DS_Store
 
 # Build
-public/index.html
-public/js/*.js
+public/
