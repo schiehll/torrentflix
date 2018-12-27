@@ -4,17 +4,15 @@ const config = require('./webpack.config.js')
 
 module.exports = merge.strategy({ entry: 'prepend' })(config, {
   mode: 'development',
-  entry: ['webpack-hot-middleware/client'],
   devtool: 'source-map',
 
   devServer: {
     compress: true,
+    historyApiFallback: true,
     stats: {
       modules: false,
       children: false,
       colors: true
     }
-  },
-
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  }
 })

@@ -4,10 +4,10 @@ const path = require('path')
 const resolve = filePath => path.resolve(__dirname, '../', filePath)
 
 module.exports = {
-  entry: [resolve('src/client/index')],
+  entry: [resolve('src/index')],
 
   output: {
-    path: resolve('dist/client'),
+    path: resolve('public'),
     publicPath: '/',
     filename: 'js/[name].[hash].js',
     chunkFilename: 'js/[name].[hash].chunk.js'
@@ -29,7 +29,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve('src/client/index.html'),
+      template: resolve('src/index.html'),
       chunksSortMode: 'none'
     })
   ],
