@@ -1,6 +1,6 @@
 import React, { Fragment, useState, Suspense } from 'react'
 import useDebounce from 'hooks/useDebounce'
-import OMDB from 'components/omdb'
+import Search from 'components/search'
 import Loader from 'components/loader'
 
 const Home = () => {
@@ -16,8 +16,8 @@ const Home = () => {
       <input type="text" value={title} onChange={handleTitleChange} />
       <div>
         {debouncedTitle && (
-          <Suspense delay={250} fallback={<Loader />}>
-            <OMDB title={debouncedTitle} />
+          <Suspense maxDuration={500} fallback={<Loader />}>
+            <Search title={debouncedTitle} />
           </Suspense>
         )}
       </div>

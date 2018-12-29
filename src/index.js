@@ -1,10 +1,12 @@
 import 'utils/castSender'
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom'
 import App from './App'
 
+const root = createRoot(document.getElementById('root'))
+
 const render = Component => {
-  ReactDOM.render(<App />, document.getElementById('root'))
+  root.render(<App />)
 }
 
 render(App)

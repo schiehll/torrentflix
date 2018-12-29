@@ -49,15 +49,11 @@ const Show = ({ data }) => {
     )
   }
 
-  const seasons = data.episodes.reduce((seasons, episode) => {
-    return {
-      ...seasons,
-      [episode.season]: (seasons[episode.season] || []).concat(episode)
-    }
-  }, {})
-
-  const episodeData = seasons[selectedSeason].find(
-    e => e.episode.toString() === selectedEpisode.toString()
+  const season = data.seasons.find(
+    season => season.id.toString() === selectedSeason.toString()
+  )
+  const episode = season.episodes.find(
+    episode => episode.id.toString() === selectedEpisode.toString()
   )
 
   return (
@@ -65,10 +61,10 @@ const Show = ({ data }) => {
       <label>
         Season
         <select value={selectedSeason} onChange={handleSeasonChange}>
-          {Object.keys(seasons).map(key => {
+          {data.seasons.map(({ id }) => {
             return (
-              <option key={key} value={key}>
-                {key}
+              <option key={id} value={id}>
+                {id}
               </option>
             )
           })}
@@ -77,10 +73,10 @@ const Show = ({ data }) => {
       <label>
         Episode
         <select value={selectedEpisode} onChange={handleEpisodeChange}>
-          {seasons[selectedSeason].map(({ episode }) => {
+          {season.episodes.map(({ id }) => {
             return (
-              <option key={episode} value={episode}>
-                {episode}
+              <option key={id} value={id}>
+                {id}
               </option>
             )
           })}
@@ -90,18 +86,16 @@ const Show = ({ data }) => {
         Torrent
         <select onChange={handleTorrentChange}>
           <option value="">Select one</option>
-          {Object.keys(episodeData.torrents).map(key => {
-            const torrentData = episodeData.torrents[key]
-
+          {episode.torrents.map((torrent, key) => {
             return (
-              <option key={key} value={torrentData.url}>
-                {key === '0' ? 'SD' : key}
+              <option key={key} value={torrent.url}>
+                {torrent.quality}
               </option>
             )
           })}
         </select>
       </label>
-      <pre>{JSON.stringify(episodeData, null, 2)}</pre>
+      <pre>{JSON.stringify(episode, null, 2)}</pre>
       <button onClick={requestCast}>Cast</button>
     </div>
   )

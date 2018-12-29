@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react'
-import Popcorn from 'components/popcorn'
+import Torrent from 'components/torrent'
 import Loader from 'components/loader'
 
 const Details = ({ location }) => {
   return (
-    <Suspense delay={250} fallback={<Loader />}>
-      <Popcorn id={location?.state?.imdbID} type={location?.state?.type} />
+    <Suspense maxDuration={500} fallback={<Loader />}>
+      <Torrent imdbID={location?.state?.imdbID} type={location?.state?.type} />
     </Suspense>
   )
 }
