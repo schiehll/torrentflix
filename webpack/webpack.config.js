@@ -40,5 +40,10 @@ module.exports = {
     modules: false,
     children: false,
     colors: true
+  },
+
+  target: 'web',
+  node: {
+    fs: 'empty'
   }
 }
