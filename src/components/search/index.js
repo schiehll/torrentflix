@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from '@reach/router'
 import { useQuery } from 'react-apollo-hooks'
 import SEARCH from 'graphql/queries/search'
+import Message from 'components/message'
 
 const Search = ({ title }) => {
   const { data, error } = useQuery(SEARCH, {
@@ -10,12 +11,14 @@ const Search = ({ title }) => {
 
   if (error) {
     return (
-      <div>
-        <span role="img" aria-label="error">
-          💔
-        </span>{' '}
-        Nothing found
-      </div>
+      <Message
+        emoji="💔"
+        text={
+          <span>
+            Oops, nothing found! <br /> (or maybe there's an error)
+          </span>
+        }
+      />
     )
   }
 

@@ -3,7 +3,8 @@ const baseSpacing = 5
 const theme = {
   colors: {
     white: '#FFFFFF',
-    black: '#000000'
+    black: '#000000',
+    bg: '#00010A'
   },
 
   spacing: {
@@ -17,7 +18,7 @@ const theme = {
   radius: 5,
 
   font: {
-    family: 'Arial',
+    family: 'sans-serif',
     weights: {
       normal: 400,
       thin: 200,
