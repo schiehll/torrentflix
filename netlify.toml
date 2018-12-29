@@ -1,6 +1,5 @@
 [context.production.environment]
-  OMDB_URL="https://www.omdbapi.com"
-  POPCORN_URL="https://tv-v2.api-fetch.website"
+  API_URL=http://localhost:3000
 
 [[redirects]]
   from = "/*"
