@@ -21,9 +21,9 @@ const Torrent = ({ imdbID, type }) => {
     )
   }
 
-  if (type === 'SHOW') return <Show data={data.showInfo} />
+  if (type === 'SHOW') return <Show show={data.showInfo} />
 
-  return <Movie data={data.movieInfo} />
+  return <Movie movie={data.movieInfo} />
 }
 
 export default Torrent

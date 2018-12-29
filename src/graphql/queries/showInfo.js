@@ -9,9 +9,9 @@ export default gql`
       year
       type
       seasons {
-        id
+        number
         episodes {
-          id
+          number
           title
           overview
           date
