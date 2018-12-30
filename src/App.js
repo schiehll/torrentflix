@@ -1,3 +1,5 @@
+import 'vendor/castFramework'
+import 'vendor/castSender'
 import React, { Fragment } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { ApolloProvider } from 'react-apollo-hooks'

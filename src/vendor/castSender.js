@@ -1,30 +1,3 @@
-window.__onGCastApiAvailable = isAvailable => {
-  if (isAvailable) {
-    const sessionRequest = new window.chrome.cast.SessionRequest(
-      window.chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID
-    )
-    const apiConfig = new window.chrome.cast.ApiConfig(
-      sessionRequest,
-      function(session) {
-        console.log('got session', session)
-      },
-      function receiverListener(e) {
-        if (e === window.chrome.cast.ReceiverAvailability.AVAILABLE) {
-          console.log('receiver is available')
-        }
-      }
-    )
-    window.chrome.cast.initialize(
-      apiConfig,
-      function() {
-        console.log('got initSuccess')
-      },
-      function(gotError) {
-        console.log('gotError', gotError)
-      }
-    )
-  }
-}
 ;(function() {
   var e = function(a) {
       return (

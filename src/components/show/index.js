@@ -37,6 +37,7 @@ const Show = ({ show }) => {
   const cast = () => {
     if (torrentInfo && data && data.url && !loading) {
       requestCast(data.url)
+      setTorrentInfo(null)
     }
   }
 
