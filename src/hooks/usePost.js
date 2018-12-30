@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 
 const usePost = (url, body) => {
   const [data, setData] = useState(null)
+  const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const strBody = JSON.stringify(body)
 
@@ -18,7 +19,17 @@ const usePost = (url, body) => {
         })
           .then(res => res.json())
           .then(data => {
+            if (data.error) {
+              throw new Error(data.error)
+            }
+
             setData(data)
+            setLoading(false)
+            setError(null)
+          })
+          .catch(err => {
+            setError(err.message)
+            setData(null)
             setLoading(false)
           })
       }
@@ -26,7 +37,7 @@ const usePost = (url, body) => {
     [url, strBody]
   )
 
-  return { data, loading }
+  return { data, loading, error }
 }
 
 export default usePost
