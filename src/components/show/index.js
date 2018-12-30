@@ -7,7 +7,7 @@ import Content from 'components/content'
 import List from 'components/list'
 import Item from 'components/item'
 import ItemButton from 'components/item-button'
-import * as S from './styles'
+import { Infos, MultiLineInfos, ComplementaryInfo } from 'components/item-infos'
 
 const Show = ({ show }) => {
   const [selectedSeason, setSelectedSeason] = useState(null)
@@ -53,12 +53,12 @@ const Show = ({ show }) => {
                 onClick={() => handleSeasonChange(season)}
                 key={`season-${season.number}`}
               >
-                <S.Infos>
+                <Infos>
                   Season {season.number.padStart(2, '0')}{' '}
-                  <S.ComplementaryInfo>
+                  <ComplementaryInfo>
                     &middot; {season.episodes.length} episodes
-                  </S.ComplementaryInfo>
-                </S.Infos>
+                  </ComplementaryInfo>
+                </Infos>
                 <span>👉</span>
               </Item>
             ))}
@@ -67,20 +67,20 @@ const Show = ({ show }) => {
               <Fragment>
                 <ItemButton onClick={() => handleSeasonChange(null)}>
                   <span>👈</span>
-                  <S.Infos>Go back to season selection</S.Infos>
+                  <Infos>Go back to season selection</Infos>
                 </ItemButton>
                 {selectedSeason.episodes.map(episode => (
                   <Item
                     onClick={() => handleEpisodeChange(episode)}
                     key={`episode-${episode.number}`}
                   >
-                    <S.MultiLineInfos>
+                    <MultiLineInfos>
                       {episode.title}
-                      <S.ComplementaryInfo>
+                      <ComplementaryInfo>
                         S{selectedSeason.number.padStart(2, '0')}E
                         {episode.number.padStart(2, '0')}
-                      </S.ComplementaryInfo>
-                    </S.MultiLineInfos>
+                      </ComplementaryInfo>
+                    </MultiLineInfos>
                     <span>👉</span>
                   </Item>
                 ))}
@@ -90,19 +90,17 @@ const Show = ({ show }) => {
             <Fragment>
               <ItemButton onClick={() => handleEpisodeChange(null)}>
                 <span>👈</span>
-                <S.Infos>Go back to episode selection</S.Infos>
+                <Infos>Go back to episode selection</Infos>
               </ItemButton>
               {selectedEpisode.torrents.map(torrent => (
                 <Item
                   onClick={() => handleTorrentInfoChange(torrent)}
                   key={`torrent-${torrent.quality}`}
                 >
-                  <S.MultiLineInfos>
+                  <MultiLineInfos>
                     {torrent.quality}
-                    <S.ComplementaryInfo>
-                      {torrent.provider}
-                    </S.ComplementaryInfo>
-                  </S.MultiLineInfos>
+                    <ComplementaryInfo>{torrent.provider}</ComplementaryInfo>
+                  </MultiLineInfos>
                   <span>👉</span>
                 </Item>
               ))}
@@ -113,7 +111,7 @@ const Show = ({ show }) => {
             torrentInfo && (
               <ItemButton onClick={cast}>
                 <span>🤞</span>
-                <S.Infos
+                <Infos
                   dangerouslySetInnerHTML={{
                     __html: `Cast S${selectedSeason.number.padStart(
                       2,

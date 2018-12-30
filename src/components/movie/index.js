@@ -7,8 +7,8 @@ import Content from 'components/content'
 import List from 'components/list'
 import Item from 'components/item'
 import ItemButton from 'components/item-button'
+import { Infos, MultiLineInfos, ComplementaryInfo } from 'components/item-infos'
 import theme from 'styles/theme'
-import * as S from 'components/show/styles'
 
 const Movie = ({ movie }) => {
   const [torrentInfo, setTorrentInfo] = useState(null)
@@ -40,10 +40,10 @@ const Movie = ({ movie }) => {
               onClick={() => handleTorrentInfoChange(torrent)}
               key={`torrent-${torrent.quality}`}
             >
-              <S.MultiLineInfos>
+              <MultiLineInfos>
                 {torrent.quality}
-                <S.ComplementaryInfo>{torrent.provider}</S.ComplementaryInfo>
-              </S.MultiLineInfos>
+                <ComplementaryInfo>{torrent.provider}</ComplementaryInfo>
+              </MultiLineInfos>
               <span>👉</span>
             </Item>
           ))}
@@ -52,7 +52,7 @@ const Movie = ({ movie }) => {
             torrentInfo && (
               <ItemButton onClick={cast}>
                 <span>🤞</span>
-                <S.Infos
+                <Infos
                   style={{ marginLeft: `${theme.spacing.base}px` }}
                   dangerouslySetInnerHTML={{
                     __html: `Cast ${movie.title} &middot; ${
