@@ -1,5 +1,5 @@
 [context.production.environment]
-  API_URL="http://c125fc35.ngrok.io"
+  API_URL="https://c125fc35.ngrok.io"
 
 [[redirects]]
   from = "/*"
