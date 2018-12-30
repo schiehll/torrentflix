@@ -52,7 +52,7 @@ const Show = ({ show }) => {
             show.seasons.map(season => (
               <Item
                 onClick={() => handleSeasonChange(season)}
-                key={`season-${season.number}`}
+                key={season.number}
               >
                 <Infos>
                   Season {season.number.padStart(2, '0')}{' '}
@@ -73,7 +73,7 @@ const Show = ({ show }) => {
                 {selectedSeason.episodes.map(episode => (
                   <Item
                     onClick={() => handleEpisodeChange(episode)}
-                    key={`episode-${episode.number}`}
+                    key={episode.number}
                   >
                     <MultiLineInfos>
                       {episode.title}
@@ -96,7 +96,7 @@ const Show = ({ show }) => {
               {selectedEpisode.torrents.map(torrent => (
                 <Item
                   onClick={() => handleTorrentInfoChange(torrent)}
-                  key={`torrent-${torrent.quality}`}
+                  key={torrent.quality}
                 >
                   <MultiLineInfos>
                     {torrent.quality}
