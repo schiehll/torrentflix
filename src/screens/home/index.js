@@ -3,6 +3,7 @@ import useDebounce from 'hooks/useDebounce'
 import Search from 'components/search'
 import Loader from 'components/loader'
 import Message from 'components/message'
+import Logo from 'components/logo'
 import * as S from './styles'
 
 const Home = () => {
@@ -15,9 +16,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      <S.Title>
-        <span>🍿</span> torrentflix
-      </S.Title>
+      <Logo />
       <S.SearchInput
         type="text"
         placeholder="search..."

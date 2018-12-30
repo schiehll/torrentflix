@@ -1,8 +1,9 @@
 import React from 'react'
 import { useQuery } from 'react-apollo-hooks'
 import SEARCH from 'graphql/queries/search'
-import Message from 'components/message'
 import emptyImg from 'images/empty.png'
+import Message from 'components/message'
+import Link from 'components/link'
 import * as S from './styles'
 
 const Search = ({ title }) => {
@@ -27,7 +28,7 @@ const Search = ({ title }) => {
 
   return (
     <S.Result>
-      <S.Link
+      <Link
         to="/details"
         state={{
           imdbID: result.imdbID,
@@ -43,7 +44,7 @@ const Search = ({ title }) => {
             </S.Title>
           </S.Cover>
         </S.Box>
-      </S.Link>
+      </Link>
     </S.Result>
   )
 }

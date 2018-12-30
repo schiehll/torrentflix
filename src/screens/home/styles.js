@@ -1,17 +1,5 @@
 import styled, { css } from 'styled-components'
 
-export const Title = styled.h1`
-  ${({ theme: { spacing } }) => css`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    > span {
-      margin-right: ${spacing.small}px;
-    }
-  `};
-`
-
 export const SearchInput = styled.input`
   ${({ theme: { font, spacing, radius } }) => css`
     width: 100%;

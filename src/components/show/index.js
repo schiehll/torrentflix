@@ -10,6 +10,7 @@ const Show = ({ show }) => {
   const season = show.seasons.find(
     season => season.number.toString() === selectedSeason.toString()
   )
+
   const episode = season.episodes.find(
     episode => episode.number.toString() === selectedEpisode.toString()
   )
