@@ -5,7 +5,7 @@ import * as S from './styles'
 const Logo = () => (
   <Link to="/">
     <S.Logo>
-      <span>🍿</span> torrentflix
+      <S.Emoji>🍿</S.Emoji> torrentflix
     </S.Logo>
   </Link>
 )

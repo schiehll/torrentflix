@@ -40,7 +40,7 @@ const Search = ({ title }) => {
             <S.Title>
               {result.title}
               <br />
-              <span>{`🗓  ${result.year}`}</span>
+              <S.Year>{`🗓  ${result.year}`}</S.Year>
             </S.Title>
           </S.Cover>
         </S.Box>

@@ -5,9 +5,11 @@ export const Logo = styled.h1`
     width: 100%;
     display: flex;
     justify-content: center;
+  `};
+`
 
-    > span {
-      margin-right: ${spacing.small}px;
-    }
+export const Emoji = styled.span`
+  ${({ theme: { spacing } }) => css`
+    margin-right: ${spacing.small}px;
   `};
 `

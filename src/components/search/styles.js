@@ -49,9 +49,11 @@ export const Title = styled.div`
     background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
+  `};
+`
 
-    > span {
-      margin-top: ${spacing.small}px;
-    }
+export const Year = styled.span`
+  ${({ theme: { spacing } }) => css`
+    margin-top: ${spacing.small}px;
   `};
 `

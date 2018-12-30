@@ -1,15 +1,6 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
-import rotate from 'styles/animations/rotate'
+import * as S from './styles'
 
-const Spinner = styled.div`
-  ${({ size }) => css`
-    display: inline-block;
-    font-size: ${size === 'big' ? 3.5 : 2}rem;
-    animation: ${rotate} 2s linear infinite;
-  `};
-`
-
-const Loader = ({ size = 'medium' }) => <Spinner size={size}>🌀</Spinner>
+const Loader = () => <S.Spinner>🌀</S.Spinner>
 
 export default Loader

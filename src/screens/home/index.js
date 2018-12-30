@@ -26,7 +26,7 @@ const Home = () => {
       {debouncedTitle ? (
         <Suspense
           maxDuration={500}
-          fallback={<Message emoji={<Loader size="big" />} text="loading..." />}
+          fallback={<Message emoji={<Loader />} text="loading..." />}
         >
           <Search title={debouncedTitle} />
         </Suspense>

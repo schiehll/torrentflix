@@ -3,6 +3,10 @@ import usePost from 'hooks/usePost'
 import requestCast from 'utils/requestCast'
 import Message from 'components/message'
 import Loader from 'components/loader'
+import Content from 'components/content'
+import List from 'components/list'
+import Item from 'components/item'
+import ItemButton from 'components/item-button'
 import * as S from './styles'
 
 const Show = ({ show }) => {
@@ -37,77 +41,77 @@ const Show = ({ show }) => {
   }
 
   return (
-    <S.Content>
+    <Content>
       <h2>{`🎬 ${show.title}`}</h2>
       <p>{show.synopsis}</p>
-      {loading && (
-        <Message emoji={<Loader size="big" />} text="getting cast link..." />
-      )}
+      {loading && <Message emoji={<Loader />} text="getting cast link..." />}
       {!loading && (
-        <S.List>
+        <List>
           {selectedSeason === null &&
-            show.seasons.map(season => {
-              return (
-                <S.Item
-                  onClick={() => handleSeasonChange(season)}
-                  key={`season-${season.number}`}
-                >
-                  <S.Infos>
-                    Season {season.number.padStart(2, '0')}{' '}
-                    <span>&middot; {season.episodes.length} episodes</span>
-                  </S.Infos>
-                  <span>👉</span>
-                </S.Item>
-              )
-            })}
+            show.seasons.map(season => (
+              <Item
+                onClick={() => handleSeasonChange(season)}
+                key={`season-${season.number}`}
+              >
+                <S.Infos>
+                  Season {season.number.padStart(2, '0')}{' '}
+                  <S.ComplementaryInfo>
+                    &middot; {season.episodes.length} episodes
+                  </S.ComplementaryInfo>
+                </S.Infos>
+                <span>👉</span>
+              </Item>
+            ))}
           {selectedSeason !== null &&
             !selectedEpisode && (
               <Fragment>
-                <S.ItemButton onClick={() => handleSeasonChange(null)}>
+                <ItemButton onClick={() => handleSeasonChange(null)}>
                   <span>👈</span>
                   <S.Infos>Go back to season selection</S.Infos>
-                </S.ItemButton>
+                </ItemButton>
                 {selectedSeason.episodes.map(episode => (
-                  <S.Item
+                  <Item
                     onClick={() => handleEpisodeChange(episode)}
                     key={`episode-${episode.number}`}
                   >
                     <S.MultiLineInfos>
                       {episode.title}
-                      <span>
+                      <S.ComplementaryInfo>
                         S{selectedSeason.number.padStart(2, '0')}E
                         {episode.number.padStart(2, '0')}
-                      </span>
+                      </S.ComplementaryInfo>
                     </S.MultiLineInfos>
                     <span>👉</span>
-                  </S.Item>
+                  </Item>
                 ))}
               </Fragment>
             )}
           {selectedEpisode && (
             <Fragment>
-              <S.ItemButton onClick={() => handleEpisodeChange(null)}>
+              <ItemButton onClick={() => handleEpisodeChange(null)}>
                 <span>👈</span>
                 <S.Infos>Go back to episode selection</S.Infos>
-              </S.ItemButton>
+              </ItemButton>
               {selectedEpisode.torrents.map(torrent => (
-                <S.Item
+                <Item
                   onClick={() => handleTorrentInfoChange(torrent)}
                   key={`torrent-${torrent.quality}`}
                 >
                   <S.MultiLineInfos>
                     {torrent.quality}
-                    <span>{torrent.provider}</span>
+                    <S.ComplementaryInfo>
+                      {torrent.provider}
+                    </S.ComplementaryInfo>
                   </S.MultiLineInfos>
                   <span>👉</span>
-                </S.Item>
+                </Item>
               ))}
             </Fragment>
           )}
           {data &&
             data.url &&
             torrentInfo && (
-              <S.ItemButton onClick={cast}>
+              <ItemButton onClick={cast}>
                 <span>🤞</span>
                 <S.Infos
                   dangerouslySetInnerHTML={{
@@ -119,11 +123,11 @@ const Show = ({ show }) => {
                     } &middot; ${torrentInfo.provider}`
                   }}
                 />
-              </S.ItemButton>
+              </ItemButton>
             )}
-        </S.List>
+        </List>
       )}
-    </S.Content>
+    </Content>
   )
 }
 

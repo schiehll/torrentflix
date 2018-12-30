@@ -4,7 +4,7 @@ import * as S from './styles'
 
 const PageLoader = () => (
   <S.LoaderWrapper>
-    <Loader size="big" />
+    <Loader />
   </S.LoaderWrapper>
 )
 
