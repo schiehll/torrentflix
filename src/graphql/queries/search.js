@@ -7,6 +7,7 @@ export default gql`
       type
       title
       poster
+      year
     }
   }
 `

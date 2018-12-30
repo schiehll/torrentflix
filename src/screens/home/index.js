@@ -24,27 +24,23 @@ const Home = () => {
         value={title}
         onChange={handleTitleChange}
       />
-      <div>
-        {debouncedTitle ? (
-          <Suspense
-            maxDuration={500}
-            fallback={
-              <Message emoji={<Loader size="big" />} text="loading..." />
-            }
-          >
-            <Search title={debouncedTitle} />
-          </Suspense>
-        ) : (
-          <Message
-            emoji="☝️"
-            text={
-              <span>
-                try to search <br /> for something above
-              </span>
-            }
-          />
-        )}
-      </div>
+      {debouncedTitle ? (
+        <Suspense
+          maxDuration={500}
+          fallback={<Message emoji={<Loader size="big" />} text="loading..." />}
+        >
+          <Search title={debouncedTitle} />
+        </Suspense>
+      ) : (
+        <Message
+          emoji="☝️"
+          text={
+            <span>
+              try to search <br /> for something, up there
+            </span>
+          }
+        />
+      )}
     </Fragment>
   )
 }

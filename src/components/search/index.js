@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link } from '@reach/router'
 import { useQuery } from 'react-apollo-hooks'
 import SEARCH from 'graphql/queries/search'
 import Message from 'components/message'
+import emptyImg from 'images/empty.png'
+import * as S from './styles'
 
 const Search = ({ title }) => {
   const { data, error } = useQuery(SEARCH, {
@@ -25,15 +26,25 @@ const Search = ({ title }) => {
   const { search: result } = data
 
   return (
-    <Link
-      to="/details"
-      state={{
-        imdbID: result.imdbID,
-        type: result.type
-      }}
-    >
-      <img src={result.poster} alt={result.title} />
-    </Link>
+    <S.Result>
+      <S.Link
+        to="/details"
+        state={{
+          imdbID: result.imdbID,
+          type: result.type
+        }}
+      >
+        <S.Box>
+          <S.Cover poster={result.poster || emptyImg}>
+            <S.Title>
+              {result.title}
+              <br />
+              <span>{`🗓  ${result.year}`}</span>
+            </S.Title>
+          </S.Cover>
+        </S.Box>
+      </S.Link>
+    </S.Result>
   )
 }
 

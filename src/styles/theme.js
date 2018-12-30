@@ -4,7 +4,9 @@ const theme = {
   colors: {
     white: '#FFFFFF',
     black: '#000000',
-    bg: '#00010A'
+    bg: '#00010A',
+    darkblue: '#151828',
+    deepblue: '#090E21'
   },
 
   spacing: {
@@ -15,7 +17,7 @@ const theme = {
     huge: baseSpacing * 5
   },
 
-  radius: 5,
+  radius: 3,
 
   font: {
     family: 'sans-serif',

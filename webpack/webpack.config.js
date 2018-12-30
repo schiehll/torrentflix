@@ -20,6 +20,14 @@ module.exports = {
         test: /\.js$/,
         include: [resolve('src')],
         loader: 'babel-loader'
+      },
+      {
+        test: /\.png$/,
+        include: [resolve('src/images')],
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[hash].[ext]'
+        }
       }
     ]
   },
