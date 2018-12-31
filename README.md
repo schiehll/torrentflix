@@ -6,6 +6,10 @@
   <img src="demo.gif">
 </p>
 
+# Motivation
+
+There's no season 5 of Brooklyn nine-nine on Netflix 👎
+
 # What's it
 
 It lets you search for a movie or show using the [OMDb API](http://www.omdbapi.com/), then it try to find torrent files for it using the [Popcorn API](https://popcornofficial.docs.apiary.io/#reference).
