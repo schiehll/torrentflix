@@ -27,6 +27,7 @@
     "@babel/register": "^7.0.0",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^8.0.0",
+    "babel-plugin-preval": "^3.0.1",
     "babel-plugin-styled-components": "^1.8.0",
     "dotenv-webpack": "^1.6.0",
     "eslint": "^4.19.0",
