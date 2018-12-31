@@ -1,8 +1,8 @@
 {
-  "name": "react-boilerplate",
+  "name": "torrentflix",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/schiehll/react-boilerplate.git",
+  "repository": "https://github.com/schiehll/torrentflix.git",
   "author": "Reinaldo Schiehll <rn.schiehll@gmail.com>",
   "license": "MIT",
   "scripts": {
