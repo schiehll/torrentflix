@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { Router } from '@reach/router'
-import LazyLoadScreen from 'utils/LazyLoadScreen'
+import lazyWithPreload from 'utils/lazyWithPreload'
 import PageLoader from 'components/page-loader'
 
 export const PATHS = {
@@ -15,14 +15,26 @@ const screens = preval`
   module.exports = fs.readdirSync(path.resolve(__dirname, '../screens'))
 `
 
+export const screenRoutes = screens.reduce((screenRoutes, screen) => {
+  const Screen = lazyWithPreload(() =>
+    import(/* webpackChunkName: "screen-[request]" */ `../screens/${screen}`)
+  )
+
+  const path = PATHS[screen.replace(/-/, '_').toUpperCase()]
+
+  if (!path) return screenRoutes
+
+  return screenRoutes.concat({
+    screen,
+    path,
+    component: Screen
+  })
+}, [])
+
 const Routes = () => (
   <Suspense maxDuration={500} fallback={<PageLoader />}>
     <Router>
-      {screens.map(screen => {
-        const Screen = LazyLoadScreen(screen)
-        const path = PATHS[screen.replace(/-/, '_').toUpperCase()]
-
-        if (!path) return null
+      {screenRoutes.map(({ screen, path, component: Screen }) => {
         return <Screen key={screen} path={path} default={path === '*'} />
       })}
     </Router>

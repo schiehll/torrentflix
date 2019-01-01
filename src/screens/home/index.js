@@ -1,10 +1,15 @@
-import React, { Fragment, useState, Suspense } from 'react'
+import React, { Fragment, useState, useEffect, Suspense } from 'react'
 import useDebounce from 'hooks/useDebounce'
 import Search from 'components/search'
 import Loader from 'components/loader'
 import Message from 'components/message'
 import Logo from 'components/logo'
+import { screenRoutes } from 'routes'
 import * as S from './styles'
+
+const detailsScreen = screenRoutes.find(
+  screenRoute => screenRoute.screen === 'details'
+)
 
 const Home = () => {
   const [title, setTitle] = useState('')
@@ -13,6 +18,15 @@ const Home = () => {
   const handleTitleChange = e => {
     setTitle(e.target.value)
   }
+
+  useEffect(
+    () => {
+      if (debouncedTitle && detailsScreen) {
+        detailsScreen.component.preload()
+      }
+    },
+    [debouncedTitle]
+  )
 
   return (
     <Fragment>
