@@ -4,11 +4,11 @@ import Search from 'components/search'
 import Loader from 'components/loader'
 import Message from 'components/message'
 import Logo from 'components/logo'
-import { screenRoutes } from 'routes'
+import { PATHS, screenRoutes } from 'routes'
 import * as S from './styles'
 
 const detailsScreen = screenRoutes.find(
-  screenRoute => screenRoute.screen === 'details'
+  screenRoute => screenRoute.path === PATHS.DETAILS
 )
 
 const Home = () => {
